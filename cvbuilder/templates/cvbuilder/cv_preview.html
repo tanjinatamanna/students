@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CV Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fafafa;
+            padding: 30px;
+        }
+        .cv-container {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .button {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'cv_create' %}">Create New CV</a>
+        <a href="{% url 'cv_list' %}">Saved CVs</a>
+    </div>
+
+    <div class="cv-container">
+        <h1>{{ cv.full_name }}</h1>
+        <p><strong>Email:</strong> {{ cv.email }}</p>
+        <p><strong>Phone:</strong> {{ cv.phone }}</p>
+        <p><strong>Address:</strong> {{ cv.address }}</p>
+
+        <div class="section">
+            <h2>Education</h2>
+            <p><strong>Institution:</strong> {{ cv.institution }}</p>
+            <p><strong>Degree:</strong> {{ cv.degree }}</p>
+            <p><strong>Passing Year:</strong> {{ cv.passing_year }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Experience</h2>
+            <p><strong>Company:</strong> {{ cv.company }}</p>
+            <p><strong>Role:</strong> {{ cv.role }}</p>
+            <p><strong>Duration:</strong> {{ cv.duration }}</p>
+            <p><strong>Description:</strong> {{ cv.description }}</p>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <p>{{ cv.skills }}</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a class="button" href="{% url 'download_cv' cv.id %}">Download as PDF</a>
+        </div>
+    </div>
+</body>
+</html>
+

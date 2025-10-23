@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>{{ cv.full_name }} - CV</title></head>
+<body>
+  <h1>{{ cv.full_name }}</h1>
+  <p>{{ cv.email }} | {{ cv.phone }}</p>
+  <p>{{ cv.address|linebreaksbr }}</p>
+
+  <h3>Education</h3>
+  <p>{{ cv.institution }} — {{ cv.degree }} ({{ cv.passing_year }})</p>
+
+  <h3>Experience</h3>
+  <p>{{ cv.company }} — {{ cv.role }} — {{ cv.duration }}</p>
+  <p>{{ cv.description|linebreaksbr }}</p>
+
+  <h3>Skills</h3>
+  <p>{{ cv.skills }}</p>
+</body>
+</html>
